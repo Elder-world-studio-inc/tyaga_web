@@ -6,7 +6,8 @@
     "dev": "vite",
     "build": "tsc && vite build",
     "preview": "vite preview",
-    "start": "node server.js"
+    "start": "node server.js",
+    "postinstall": "npm run build"
   },
   "dependencies": {
     "clsx": "^2.0.0",
