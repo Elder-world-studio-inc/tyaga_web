@@ -16,6 +16,28 @@ app.use(cors());
 app.use(express.json());
 app.use(express.static(path.join(__dirname, 'dist')));
 
+// Proxy Configuration for External Services
+// Proxy /api/auth to the VPS API
+app.use('/api/auth', createProxyMiddleware({
+  target: 'http://76.13.113.206', // Base URL of VPS
+  changeOrigin: true,
+  secure: false, // Since target is HTTP
+}));
+
+// Proxy /api/rights (if needed)
+app.use('/api/rights', createProxyMiddleware({
+  target: 'http://76.13.113.206',
+  changeOrigin: true,
+  secure: false,
+}));
+
+// Proxy /api/brand (if needed)
+app.use('/api/brand', createProxyMiddleware({
+  target: 'http://76.13.113.206',
+  changeOrigin: true,
+  secure: false,
+}));
+
 // File upload setup
 const upload = multer({ storage: multer.memoryStorage() });
 
