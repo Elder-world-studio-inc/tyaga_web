@@ -1,4 +1,5 @@
-import { OrchestratorData, Slot, Agent, Work, Campaign } from '../components/builder/types'; // Need to verify where these types are defined or redefine them
+// Types redefined below since they are not in builder/types
+// import { OrchestratorData, Slot, Agent, Work, Campaign } from '../components/builder/types';
 
 // Since I don't want to chase imports right now, I'll redefine or use 'any' temporarily, 
 // but better to look at SlotOrchestrator.tsx for interfaces.
