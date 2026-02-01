@@ -1,0 +1,58 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Default Theme (Deepest Purple) */
+    --color-background: 15 7 32;
+    --color-surface: 255 255 255;
+    --color-primary: 176 38 255;
+    --color-primary-glow: 217 128 250;
+    --color-primary-dim: 87 16 133;
+    --color-text-main: 255 255 255;
+    --color-text-muted: 169 169 192;
+  }
+
+  :root.theme-light {
+    /* Clean Light */
+    --color-background: 243 244 246; /* Gray 100 */
+    --color-surface: 0 0 0; /* Black for glass effect on light bg? Or maybe just white */
+    --color-primary: 124 58 237; /* Violet 600 */
+    --color-primary-glow: 139 92 246; /* Violet 500 */
+    --color-primary-dim: 109 40 217; /* Violet 700 */
+    --color-text-main: 17 24 39; /* Gray 900 */
+    --color-text-muted: 107 114 128; /* Gray 500 */
+  }
+
+  :root.theme-ocean {
+    /* Ocean Blue */
+    --color-background: 15 23 42; /* Slate 900 */
+    --color-surface: 30 41 59; /* Slate 800 */
+    --color-primary: 14 165 233; /* Sky 500 */
+    --color-primary-glow: 56 189 248; /* Sky 400 */
+    --color-primary-dim: 3 105 161; /* Sky 700 */
+    --color-text-main: 248 250 252; /* Slate 50 */
+    --color-text-muted: 148 163 184; /* Slate 400 */
+  }
+}
+
+@layer utilities {
+  .glass-panel {
+    @apply bg-surface/5 backdrop-blur-xl border border-text-main/10;
+  }
+  .electric-border {
+    @apply border border-transparent bg-gradient-to-r from-primary/50 to-primary-glow/50 bg-clip-border;
+  }
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: rgb(var(--color-background));
+  color: rgb(var(--color-text-main));
+}
